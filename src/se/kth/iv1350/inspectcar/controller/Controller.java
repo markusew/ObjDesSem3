@@ -1,7 +1,6 @@
 package se.kth.iv1350.inspectcar.controller;
 
 import se.kth.iv1350.inspectcar.integration.DatabaseManager;
-import se.kth.iv1350.inspectcar.model.Amount;
 import se.kth.iv1350.inspectcar.model.Inspection;
 import se.kth.iv1350.inspectcar.model.Vehicle;
 
@@ -28,9 +27,10 @@ public class Controller {
      * @param regNo The registration number of the vehicle to inspect.
      * @return The total cost for the inspections, or null if there are no inspections to perform.
      */
-    public Amount enterRegNo(String regNo) {
+    public int enterRegNo(String regNo) {
         Vehicle vehicle = new Vehicle(regNo);
         Inspection inspection = new Inspection(vehicle, dbMgr);
+        return inspection.getCost();
     }
 
 }
