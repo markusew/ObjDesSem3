@@ -10,7 +10,7 @@ import se.kth.iv1350.inspectcar.integration.InspectionItem;
  */
 public class Inspection {
     private final Vehicle vehicle;
-    private List<InspectionItem> inspections = new ArrayList<>();
+    private List<InspectionItem> inspections;
 
     /**
      * Creates a new instance, representing an inspection of the specified vehicle.
@@ -29,6 +29,9 @@ public class Inspection {
      */
     public int getCost() {
         int totalCost = 0;
+        if (inspections == null) {
+            return 0;
+        }
         for (InspectionItem inspItem : inspections) {
             totalCost = totalCost + inspItem.getCost();
         }

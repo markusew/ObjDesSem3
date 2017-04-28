@@ -14,5 +14,12 @@ public class Vehicle {
     public Vehicle(String regNo) {
         this.regNo = regNo;
     }
+    
+    /**
+     * @return This vehicle's registration number.
+     */
+    public String getRegNo() {
+        return regNo;
+    }
 
 }

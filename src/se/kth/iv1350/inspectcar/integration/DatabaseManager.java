@@ -20,14 +20,17 @@ public class DatabaseManager {
 
     /**
      * Searches the database for inspections to be performed on the specified vehicle. This dummy
-     * implementation return the same, hard coded, inspections for all vehicles.
+     * implementation returns hard coded inspections for some vehicles.
      *
      * @param vehicle The vehicle to inspect.
      * @return A list of <code>InspectionItem</code>s, where each element describes one particular
      *         control.
      */
     public List<InspectionItem> findInspectionsByVehicle(Vehicle vehicle) {
-        return dummyInspectionList;
+        if (vehicle.getRegNo().equals("ABC123")) {
+            return dummyInspectionList;
+        }
+        return null;
     }
 
     private void createDummyInspections() {
