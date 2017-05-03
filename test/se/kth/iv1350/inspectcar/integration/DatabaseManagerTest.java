@@ -27,7 +27,7 @@ public class DatabaseManagerTest {
 
     @Test
     public void testNumberOfFoundInspections() {
-        int expResult = 3;
+        int expResult = 4;
         int result = instance.findInspectionsByVehicle(vehicleToInspect).size();
         assertEquals("Wrong number of inspection items", expResult, result);
     }
@@ -38,6 +38,7 @@ public class DatabaseManagerTest {
         expResult.add(new InspectionItem("brakes", 10));
         expResult.add(new InspectionItem("suspension", 20));
         expResult.add(new InspectionItem("stearing", 30));
+        expResult.add(new InspectionItem("engine", 50));
 
         List<InspectionItem> result = instance.findInspectionsByVehicle(vehicleToInspect);
         for (int i=0; i<expResult.size(); i++) {

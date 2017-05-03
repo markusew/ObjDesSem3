@@ -11,6 +11,7 @@ import se.kth.iv1350.inspectcar.integration.InspectionItem;
 public class Inspection {
     private final Vehicle vehicle;
     private List<InspectionItem> inspections;
+    private int inspectionNumber = 1;
 
     /**
      * Creates a new instance, representing an inspection of the specified vehicle.
@@ -36,5 +37,29 @@ public class Inspection {
             totalCost = totalCost + inspItem.getCost();
         }
         return totalCost;
+    }
+    /**
+     * Returns that an inspection has been completed and 
+     * 
+     * @return 
+     */
+    public String inspectPart(){
+        String noInspections = "No inspections were found for this vehicle";
+        String noMoreInspections = "All inspections have been completed for "
+                                 + "this vehicle";
+        String inspectionComplete = "Inspection has been completed for "
+                                  + "inspection # " + 
+                                   Integer.toString(inspectionNumber);
+        if(this.inspections == null){
+           return noInspections;
+        }
+        else if (inspectionNumber > this.inspections.size()){
+            return noMoreInspections;
+        }
+        else{
+            inspectionNumber++;
+        return inspectionComplete;
+        }
+        
     }
 }

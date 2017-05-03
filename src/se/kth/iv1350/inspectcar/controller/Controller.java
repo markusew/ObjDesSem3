@@ -1,22 +1,36 @@
 package se.kth.iv1350.inspectcar.controller;
 
+import se.kth.iv1350.garage.Garage;
 import se.kth.iv1350.inspectcar.integration.DatabaseManager;
+import se.kth.iv1350.inspectcar.integration.Printer;
 import se.kth.iv1350.inspectcar.model.Inspection;
 import se.kth.iv1350.inspectcar.model.Vehicle;
+import se.kth.iv1350.payauth.PaymentAuthorization;
 
 /**
  * This is the application's single controller. All calls to the model pass through here.
  */
 public class Controller {
-    private DatabaseManager dbMgr;
+    public DatabaseManager dbMgr;
+    public Garage garage;
+    public Printer printer;
+    public PaymentAuthorization payment;
 
     /**
-     * Creates a new instance using the specified database manager.
+     * Creates a new instance using the specified database manager, garage, 
+     * printer and payment authorization system.
      *
      * @param dbMgr The database manager used for all database calls.
+     * @param garage is used to open and close the garage.
+     * @param printer is used to print receipts and result from inspection.
+     * @param payment This is the PaymentAuthorization system used to verify
+     * credit card payments.
      */
-    public Controller(DatabaseManager dbMgr) {
+    public Controller(DatabaseManager dbMgr, Garage garage, Printer printer, PaymentAuthorization payment) {
         this.dbMgr = dbMgr;
+        this.garage = garage;
+        this.printer = printer;
+        this.payment = payment;
     }
 
     /**

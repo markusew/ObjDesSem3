@@ -38,6 +38,7 @@ public class DatabaseManager {
         dummyInspectionList.add(new InspectionItem("brakes", 10));
         dummyInspectionList.add(new InspectionItem("suspension", 20));
         dummyInspectionList.add(new InspectionItem("stearing", 30));
+        dummyInspectionList.add(new InspectionItem("engine", 50));
     }
 
 }
