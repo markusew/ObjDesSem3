@@ -25,6 +25,14 @@ public class Printer {
         return dummyReceipt;
     }
     
+    /**
+     * Return the ArrayList stored in InspectionResults
+     * 
+     * @param results holds the result in a ArrayList
+     * 
+     * @return the arrayList that was contained within the InspectionResults
+     * object
+     */
     public ArrayList<String> printResults(InspectionResults results){
         return results.results;
     }
