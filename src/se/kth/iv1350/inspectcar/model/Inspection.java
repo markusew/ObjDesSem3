@@ -49,7 +49,9 @@ public class Inspection {
                                  + "this vehicle";
         String inspectionComplete = "Inspection has been completed for "
                                   + "inspection # " + 
-                                   Integer.toString(inspectionNumber);
+                                   Integer.toString(inspectionNumber) + 
+                                    ". The inspection was: " + 
+                                inspResult(inspectionNumber) + "sucessfull";
         if(this.inspections == null){
            return noInspections;
         }
@@ -61,5 +63,22 @@ public class Inspection {
         return inspectionComplete;
         }
         
+    }
+    /** 
+     * Small method that says wether or not an inspection was completed.
+     * The values and results are pretty much hardcoded.
+     * 
+     * @param inspNumber number to determine wether or not the inspection was
+     * successfull or not 
+     *
+     * @return a string that says if the inspection was a success or not.
+     */
+    public String inspResult(int inspNumber){
+        if (inspNumber % 2 > 0){
+            return "";
+        }
+        else{
+            return"not ";
+        }
     }
 }

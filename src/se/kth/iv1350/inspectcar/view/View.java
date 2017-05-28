@@ -33,8 +33,7 @@ public class View {
     public void sampleExecution() {
         
         //Testing the nextCustomer and close door command
-        contr.garage.nextCustomer();
-        contr.garage.closeDoor();
+        contr.newCustomer();
         System.out.println("The door was opened, the display incremented by one"
                          + " and the door was closed successfully.");
         
@@ -56,20 +55,20 @@ public class View {
         
         //Testing the payment authorization (always returns true)
         CreditCard creditCard = new CreditCard(pin, number, holder, expiryDate, CVC);
-        System.out.println("The payment sucessfully went through: " + contr.payment.authorizePayment(creditCard, cost));
+        System.out.println("The payment sucessfully went through: " + contr.confirmPayment(creditCard, cost));
         
         System.out.println("");
         
         //Printing a dummy receipt
         Receipt receipt = new Receipt(cost);
-        System.out.println(contr.printer.printReceipt(receipt));
+        contr.printReceipt(receipt);
         
         System.out.println("");
         
         //Adding inspection results to a list and printing out results
         ArrayList<String> results = new ArrayList<String>(); 
         Vehicle vehicle = new Vehicle(regNoOfVehicleToInspect);
-        Inspection inspection = new Inspection(vehicle, contr.dbMgr);
+        Inspection inspection = contr.createInspection(vehicle);
         for (int i = 0; i < 5; i++){
             results.add(inspection.inspectPart());
         }
@@ -79,16 +78,13 @@ public class View {
         
         System.out.println("");
         
-        //Printing results from inspection
+        //Creates a list containing the results and printing them out.
         InspectionResults inspResults = new InspectionResults(results);
         ArrayList<String> printResults = new ArrayList<String>();
-        printResults = contr.printer.printResults(inspResults);
+        printResults = contr.printResults(inspResults);
         for ( String inspections : printResults){
             System.out.println(inspections);
         }
-        
-        
-        
-        
+   
     }
 }

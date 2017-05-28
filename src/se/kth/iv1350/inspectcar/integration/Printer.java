@@ -19,10 +19,10 @@ public class Printer {
      * 
      * @return String containing payment information
      */
-    public String printReceipt(Receipt receipt){
+    public void printReceipt(Receipt receipt){
         dummyReceipt = "The receipt says that: " + receipt.cost + ", has been "
                      + "payed for the inspection";
-        return dummyReceipt;
+        System.out.println(dummyReceipt);
     }
     
     /**
