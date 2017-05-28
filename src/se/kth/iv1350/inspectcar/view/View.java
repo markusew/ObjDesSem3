@@ -2,11 +2,9 @@ package se.kth.iv1350.inspectcar.view;
 
 import java.time.YearMonth;
 import java.util.ArrayList;
-import se.kth.iv1350.garage.Garage;
 import se.kth.iv1350.inspectcar.controller.Controller;
 import se.kth.iv1350.inspectcar.model.Receipt;
 import se.kth.iv1350.payauth.*;
-import se.kth.iv1350.inspectcar.integration.Printer;
 import se.kth.iv1350.inspectcar.model.Inspection;
 import se.kth.iv1350.inspectcar.model.InspectionResults;
 import se.kth.iv1350.inspectcar.model.Vehicle;
