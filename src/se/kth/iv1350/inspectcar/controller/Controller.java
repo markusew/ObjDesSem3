@@ -104,10 +104,9 @@ public class Controller {
         return inspection2;
     }
     /**
-     * 
-     * 
      * @param regNoOfVehicleToInspect the registration number for the vehicle to
      * be inspected
+     * 
      * @return The results of completed inspections
      */
     public ArrayList<String> createNewInspection(String regNoOfVehicleToInspect){
@@ -124,7 +123,8 @@ public class Controller {
      * 
      * @param results are the results from the inspection
      * 
-     * @return 
+     * @return the results from the inspection taken from the InspectionResult
+     * object.
      */
     public ArrayList<String> createInspectionResults(ArrayList<String> results){
         InspectionResults inspResults = new InspectionResults(results);
