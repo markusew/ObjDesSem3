@@ -65,8 +65,9 @@ public class Inspection {
         
     }
     /** 
-     * Small method that says wether or not an inspection was completed.
-     * The values and results are pretty much hardcoded.
+     * Small method that says wether or not an inspection passed or failed.
+     * The values and results are hardcoded. Every other inspection will
+     * pass/fail
      * 
      * @param inspNumber number to determine wether or not the inspection was
      * successfull or not 

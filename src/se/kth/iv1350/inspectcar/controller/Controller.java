@@ -60,11 +60,13 @@ public class Controller {
         garage.closeDoor();
     }
     /**
-     * Method that sends the receipt to the printer class so it is printer out.
+     * Method that creates the receipt and sends it to the printer class so it 
+     * is printed.
      * 
-     * @param receipt has information about the pruchase.
+     * @param cost cost for the inspection
      */
-    public void printReceipt(Receipt receipt){  
+    public void printReceipt(int cost){
+        Receipt receipt = new Receipt(cost);
         printer.printReceipt(receipt);
     }
     
@@ -100,5 +102,33 @@ public class Controller {
     public Inspection createInspection(Vehicle vehicle){
         Inspection inspection2 = new Inspection(vehicle, dbMgr);
         return inspection2;
-    }   
+    }
+    /**
+     * 
+     * 
+     * @param regNoOfVehicleToInspect the registration number for the vehicle to
+     * be inspected
+     * @return The results of completed inspections
+     */
+    public ArrayList<String> createNewInspection(String regNoOfVehicleToInspect){
+        ArrayList<String> results = new ArrayList<>();
+        Vehicle vehicle = new Vehicle(regNoOfVehicleToInspect);
+        Inspection inspection = createInspection(vehicle);
+        for (int i = 0; i < 5; i++){
+            results.add(inspection.inspectPart());
+        }
+        return results;
+    }
+    /**
+     * Takes the results and stores them in a new object. Also returns the results
+     * 
+     * @param results are the results from the inspection
+     * 
+     * @return 
+     */
+    public ArrayList<String> createInspectionResults(ArrayList<String> results){
+        InspectionResults inspResults = new InspectionResults(results);
+        return inspResults.getInspectionResults();
+    }
+            
 }

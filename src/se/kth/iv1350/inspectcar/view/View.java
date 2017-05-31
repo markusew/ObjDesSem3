@@ -58,28 +58,23 @@ public class View {
         System.out.println("");
         
         //Printing a dummy receipt
-        Receipt receipt = new Receipt(cost);
-        contr.printReceipt(receipt);
+        contr.printReceipt(cost);
         
         System.out.println("");
         
         //Adding inspection results to a list and printing out results
-        ArrayList<String> results = new ArrayList<String>(); 
-        Vehicle vehicle = new Vehicle(regNoOfVehicleToInspect);
-        Inspection inspection = contr.createInspection(vehicle);
-        for (int i = 0; i < 5; i++){
-            results.add(inspection.inspectPart());
-        }
+        ArrayList<String> results = new ArrayList<>();
+        results = contr.createNewInspection(regNoOfVehicleToInspect); 
+        
         for ( String inspections : results){
             System.out.println(inspections);
         }
         
         System.out.println("");
         
-        //Creates a list containing the results and printing them out.
-        InspectionResults inspResults = new InspectionResults(results);
-        ArrayList<String> printResults = new ArrayList<String>();
-        printResults = contr.printResults(inspResults);
+        //Creates an object of type Inspection Results and prints out the results
+        ArrayList<String> printResults = new ArrayList<>();
+        printResults = contr.createInspectionResults(results);
         for ( String inspections : printResults){
             System.out.println(inspections);
         }
